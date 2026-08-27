@@ -1,0 +1,775 @@
+/* ==================================================
+   REGISTER PAGE
+================================================== */
+
+.register-page {
+  min-height: calc(100vh - 70px);
+
+  display: flex;
+
+  background: #fff8f1;
+
+  font-family: "Poppins", Arial, sans-serif;
+
+  overflow: hidden;
+}
+
+
+/* ==================================================
+   LEFT SIDE
+================================================== */
+
+.register-left {
+  width: 50%;
+
+  min-height: calc(100vh - 70px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #472317,
+      #7d3d20,
+      #c47738
+    );
+}
+
+
+/* Decorative circles */
+
+.register-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  top: -120px;
+  left: -120px;
+
+  animation: floatCircle 7s ease-in-out infinite alternate;
+}
+
+
+.register-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 190, 120, 0.10);
+
+  bottom: -100px;
+  right: -80px;
+
+  animation: floatCircle 8s ease-in-out infinite alternate-reverse;
+}
+
+
+@keyframes floatCircle {
+
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(25px, -20px);
+  }
+
+}
+
+
+/* ==================================================
+   LEFT CONTENT
+================================================== */
+
+.register-overlay {
+  width: 80%;
+
+  position: relative;
+
+  z-index: 2;
+
+  color: white;
+
+  animation: slideLeft 0.8s ease;
+}
+
+
+@keyframes slideLeft {
+
+  from {
+    opacity: 0;
+
+    transform: translateX(-35px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+
+}
+
+
+.register-overlay h1 {
+  font-size: 42px;
+
+  margin-bottom: 15px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #ffd39c,
+      #ffffff
+    );
+
+  background-size: 200% auto;
+
+  background-clip: text;
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  -webkit-text-fill-color: transparent;
+
+  animation: textShine 4s linear infinite;
+}
+
+
+@keyframes textShine {
+
+  to {
+    background-position: 200% center;
+  }
+
+}
+
+
+.register-overlay h2 {
+  font-size: 30px;
+
+  margin-bottom: 12px;
+}
+
+
+.register-overlay p {
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #f8e3d2;
+}
+
+
+/* ==================================================
+   FEATURES
+================================================== */
+
+.register-features {
+  margin-top: 32px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+
+.register-features div {
+  width: fit-content;
+
+  padding: 10px 17px;
+
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, 0.10);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(8px);
+
+  font-size: 14px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.register-features div:hover {
+  transform: translateX(8px);
+
+  background:
+    rgba(255, 255, 255, 0.18);
+}
+
+
+/* ==================================================
+   RIGHT SIDE
+================================================== */
+
+.register-right {
+  width: 50%;
+
+  min-height: calc(100vh - 70px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(213, 125, 55, 0.14),
+      transparent 45%
+    ),
+    #fffaf6;
+}
+
+
+/* ==================================================
+   REGISTER CARD
+================================================== */
+
+.register-card {
+  width: 100%;
+
+  max-width: 500px;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border-radius: 25px;
+
+  border: 1px solid rgba(120, 70, 40, 0.12);
+
+  box-shadow:
+    0 25px 65px rgba(70, 35, 18, 0.16);
+
+  backdrop-filter: blur(12px);
+
+  position: relative;
+
+  overflow: hidden;
+
+  animation: cardAppear 0.8s ease;
+}
+
+
+@keyframes cardAppear {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(35px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* Top animated line */
+
+.register-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6d321c,
+      #c67637,
+      #f0a15b,
+      #6d321c
+    );
+
+  background-size: 300% 100%;
+
+  animation: topLine 5s linear infinite;
+}
+
+
+@keyframes topLine {
+
+  to {
+    background-position: 300% 0;
+  }
+
+}
+
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.register-card h2 {
+  text-align: center;
+
+  color: #4c2819;
+
+  font-size: 29px;
+
+  margin: 0 0 7px;
+}
+
+
+.register-subtitle {
+  text-align: center;
+
+  color: #8d6d5a;
+
+  font-size: 14px;
+
+  margin-bottom: 25px;
+}
+
+
+/* ==================================================
+   ERROR / SUCCESS
+================================================== */
+
+.error-box {
+  padding: 12px 15px;
+
+  margin-bottom: 18px;
+
+  border-radius: 11px;
+
+  background: #fff0f0;
+
+  border: 1px solid #ffcaca;
+
+  color: #a12828;
+
+  font-size: 13px;
+
+  animation: messageAppear 0.3s ease;
+}
+
+
+.success-box {
+  padding: 12px 15px;
+
+  margin-bottom: 18px;
+
+  border-radius: 11px;
+
+  background: #effaf2;
+
+  border: 1px solid #c7e9d0;
+
+  color: #236b38;
+
+  font-size: 13px;
+
+  animation: messageAppear 0.3s ease;
+}
+
+
+@keyframes messageAppear {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+/* ==================================================
+   INPUTS
+================================================== */
+
+.register-card input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  margin-bottom: 16px;
+
+  border-radius: 12px;
+
+  border: 1px solid #dfd0c5;
+
+  background: #fffdfb;
+
+  color: #3e2519;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+
+.register-card input:focus {
+  border-color: #bd6b32;
+
+  box-shadow:
+    0 0 0 4px rgba(189, 107, 50, 0.10);
+
+  transform: translateY(-1px);
+}
+
+
+.register-card input::placeholder {
+  color: #aa9586;
+}
+
+
+/* ==================================================
+   PASSWORD BOX
+================================================== */
+
+.password-box {
+  width: 100%;
+
+  position: relative;
+
+  margin-bottom: 16px;
+}
+
+
+.password-box input {
+  margin-bottom: 0;
+
+  padding-right: 55px;
+}
+
+
+/* Show password button */
+
+.show-btn {
+  position: absolute;
+
+  right: 10px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 38px;
+  height: 35px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #805037;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.show-btn:hover {
+  background: #f5e9df;
+
+  transform:
+    translateY(-50%)
+    scale(1.05);
+}
+
+
+/* ==================================================
+   REGISTER BUTTON
+================================================== */
+
+.register-btn {
+  width: 100%;
+
+  padding: 14px 20px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #71371e,
+      #bd6c32
+    );
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(142, 72, 30, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+.register-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 30px rgba(142, 72, 30, 0.32);
+}
+
+
+.register-btn:active {
+  transform: translateY(0);
+}
+
+
+.register-btn:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* ==================================================
+   LOGIN SECTION
+================================================== */
+
+.login-section {
+  text-align: center;
+
+  margin-top: 25px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #eee2d8;
+}
+
+
+.login-section p {
+  color: #856756;
+
+  font-size: 13px;
+
+  margin: 0 0 7px;
+}
+
+
+.login-section a {
+  color: #8a4825;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition: color 0.25s ease;
+}
+
+
+.login-section a:hover {
+  color: #c06c31;
+
+  text-decoration: underline;
+}
+
+
+/* ==================================================
+   PASSWORD STRENGTH
+================================================== */
+
+.password-strength {
+  margin-top: -8px;
+
+  margin-bottom: 15px;
+
+  font-size: 12px;
+
+  color: #866c5c;
+}
+
+
+.password-strength-bar {
+  width: 100%;
+
+  height: 5px;
+
+  margin-top: 6px;
+
+  border-radius: 10px;
+
+  background: #eee2d9;
+
+  overflow: hidden;
+}
+
+
+.password-strength-fill {
+  height: 100%;
+
+  border-radius: 10px;
+
+  transition:
+    width 0.3s ease;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 900px) {
+
+  .register-page {
+    flex-direction: column;
+  }
+
+  .register-left {
+    width: 100%;
+
+    min-height: 330px;
+  }
+
+  .register-right {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 35px 20px;
+  }
+
+  .register-overlay {
+    width: 85%;
+
+    text-align: center;
+  }
+
+  .register-overlay h1 {
+    font-size: 34px;
+  }
+
+  .register-overlay h2 {
+    font-size: 25px;
+  }
+
+  .register-features {
+    align-items: center;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .register-left {
+    min-height: 290px;
+  }
+
+  .register-overlay h1 {
+    font-size: 27px;
+  }
+
+  .register-overlay h2 {
+    font-size: 21px;
+  }
+
+  .register-overlay p {
+    font-size: 13px;
+  }
+
+  .register-features {
+    margin-top: 18px;
+
+    gap: 8px;
+  }
+
+  .register-features div {
+    font-size: 12px;
+
+    padding: 8px 13px;
+  }
+
+  .register-right {
+    padding: 25px 15px;
+  }
+
+  .register-card {
+    padding: 30px 20px;
+
+    border-radius: 20px;
+  }
+
+  .register-card h2 {
+    font-size: 24px;
+  }
+
+}

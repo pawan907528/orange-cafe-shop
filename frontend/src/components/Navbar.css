@@ -1,0 +1,125 @@
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar {
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 40px;
+  box-sizing: border-box;
+
+  background: #3b1f14;
+  color: white;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================
+   LOGO
+========================== */
+
+.logo a {
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 25px;
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.logo a:hover {
+  color: #ffb347;
+}
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffb347;
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   WELCOME USER
+========================== */
+
+.welcome-user {
+  color: #ffd28a;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* ==========================
+   LOGOUT BUTTON
+========================== */
+
+.logout-btn {
+  border: none;
+  outline: none;
+
+  padding: 10px 18px;
+
+  border-radius: 20px;
+
+  background: #e67e22;
+  color: white;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #d35400;
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+}

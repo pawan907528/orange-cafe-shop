@@ -1,0 +1,873 @@
+/* =========================================================
+   ORANGE CAFE - PREMIUM ADMIN DASHBOARD
+   ========================================================= */
+
+/* ---------- GLOBAL ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+.admin-container {
+  min-height: 100vh;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255, 145, 77, 0.12), transparent 25%),
+    radial-gradient(circle at 90% 15%, rgba(255, 190, 120, 0.12), transparent 25%),
+    linear-gradient(135deg, #fff8f2 0%, #f7f9fc 50%, #fff4ea 100%);
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #172033;
+}
+
+/* ---------- DASHBOARD HEADER ---------- */
+
+.admin-container h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: #3b1f14;
+  letter-spacing: -0.5px;
+}
+
+.admin-container > p {
+  margin-top: 8px;
+  margin-bottom: 28px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* =========================================================
+   ANALYTICS AREA
+   ========================================================= */
+
+.analytics-section {
+  width: 100%;
+}
+
+.analytics-section h2 {
+  color: #3b1f14;
+  font-size: 22px;
+  margin: 0 0 18px;
+}
+
+/* ---------- GRAPH GRID ---------- */
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+/* ---------- GRAPH CARD ---------- */
+
+.chart-card,
+.analytics-card,
+.graph-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 145, 77, 0.12);
+  border-radius: 24px;
+  padding: 24px;
+  min-height: 420px;
+
+  box-shadow:
+    0 12px 35px rgba(80, 45, 25, 0.08),
+    0 3px 10px rgba(80, 45, 25, 0.04);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
+  overflow: hidden;
+}
+
+/* Orange glow at top */
+
+.chart-card::before,
+.analytics-card::before,
+.graph-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    #ff6b00,
+    #ff8a00,
+    #ffb347,
+    #ff6b00
+  );
+}
+
+/* Hover */
+
+.chart-card:hover,
+.analytics-card:hover,
+.graph-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 20px 45px rgba(80, 45, 25, 0.13),
+    0 5px 15px rgba(255, 107, 0, 0.08);
+
+  border-color: rgba(255, 107, 0, 0.22);
+}
+
+/* ---------- CARD HEADERS ---------- */
+
+.chart-card h2,
+.analytics-card h2,
+.graph-card h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 0 20px;
+
+  color: #24150f;
+  font-size: 20px;
+  font-weight: 750;
+}
+
+/* ---------- CHART BADGE ---------- */
+
+.chart-card h2 span,
+.analytics-card h2 span,
+.graph-card h2 span {
+  background: linear-gradient(
+    135deg,
+    #fff0e3,
+    #fff8f2
+  );
+
+  color: #f05a00;
+
+  border: 1px solid #ffd7bd;
+
+  padding: 7px 13px;
+
+  border-radius: 30px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- GRAPH CONTAINER ---------- */
+
+.chart-container,
+.graph-container {
+  position: relative;
+
+  width: 100%;
+  min-height: 320px;
+
+  padding: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdfb,
+      #f8fafc
+    );
+
+  border-radius: 18px;
+
+  border: 1px solid #edf0f4;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.8);
+
+  overflow: hidden;
+}
+
+/* Canvas */
+
+.chart-container canvas,
+.graph-container canvas,
+.chart-card canvas,
+.analytics-card canvas,
+.graph-card canvas {
+  max-width: 100% !important;
+}
+
+/* =========================================================
+   REVENUE CARD
+   ========================================================= */
+
+.revenue-card {
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #fff8f2 100%
+    );
+}
+
+.revenue-card h2 {
+  color: #7a2d00;
+}
+
+/* =========================================================
+   ORDER STATUS
+   ========================================================= */
+
+.order-status-card {
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8f7ff
+    );
+}
+
+.order-status-card h2 {
+  color: #302060;
+}
+
+/* Doughnut container */
+
+.order-status-card .chart-container {
+  background:
+    radial-gradient(
+      circle at center,
+      #ffffff,
+      #faf8ff
+    );
+}
+
+/* =========================================================
+   MENU CATEGORY
+   ========================================================= */
+
+.menu-category-card {
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f4fbff
+    );
+}
+
+.menu-category-card h2 {
+  color: #174b63;
+}
+
+/* =========================================================
+   ORDER TREND
+   ========================================================= */
+
+.order-trend-card {
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f6f5ff
+    );
+}
+
+.order-trend-card h2 {
+  color: #35245e;
+}
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  position: relative;
+
+  padding: 22px;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #edf0f4;
+
+  box-shadow:
+    0 10px 28px rgba(50, 35, 25, 0.07);
+
+  overflow: hidden;
+
+  transition: 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 35px rgba(50, 35, 25, 0.12);
+}
+
+.stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 80px;
+  height: 80px;
+
+  right: -25px;
+  top: -25px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 107, 0, 0.08);
+}
+
+.stat-card h3 {
+  margin: 0 0 8px;
+
+  font-size: 13px;
+
+  color: #7b8190;
+
+  font-weight: 600;
+}
+
+.stat-card p {
+  margin: 0;
+
+  font-size: 28px;
+
+  font-weight: 800;
+
+  color: #24150f;
+}
+
+/* Different stat colors */
+
+.stat-card:nth-child(1) {
+  border-left: 5px solid #ff6b00;
+}
+
+.stat-card:nth-child(2) {
+  border-left: 5px solid #16a34a;
+}
+
+.stat-card:nth-child(3) {
+  border-left: 5px solid #7c3aed;
+}
+
+.stat-card:nth-child(4) {
+  border-left: 5px solid #0ea5e9;
+}
+
+/* =========================================================
+   ORDER MANAGEMENT
+   ========================================================= */
+
+.orders-section {
+  margin-top: 30px;
+}
+
+.orders-section h2 {
+  font-size: 23px;
+  color: #3b1f14;
+  margin-bottom: 18px;
+}
+
+/* ---------- ORDER TABLE ---------- */
+
+.orders-table-container {
+  background: #ffffff;
+
+  border-radius: 22px;
+
+  overflow-x: auto;
+
+  border: 1px solid #edf0f4;
+
+  box-shadow:
+    0 12px 35px rgba(50, 35, 25, 0.08);
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
+
+.orders-table thead {
+  background:
+    linear-gradient(
+      135deg,
+      #3b1f14,
+      #5a2d1c
+    );
+}
+
+.orders-table th {
+  padding: 15px 18px;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  text-align: left;
+
+  letter-spacing: 0.2px;
+}
+
+.orders-table td {
+  padding: 15px 18px;
+
+  border-bottom: 1px solid #f0f1f4;
+
+  color: #3f4653;
+
+  font-size: 14px;
+}
+
+.orders-table tbody tr {
+  transition: 0.2s ease;
+}
+
+.orders-table tbody tr:hover {
+  background: #fff8f2;
+}
+
+/* =========================================================
+   STATUS BUTTON
+   ========================================================= */
+
+.status-select,
+.order-status-select {
+  border: none;
+
+  outline: none;
+
+  padding: 8px 13px;
+
+  border-radius: 25px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  background: #fff0e3;
+
+  color: #e85d04;
+
+  border: 1px solid #ffd1b3;
+
+  transition: 0.2s ease;
+}
+
+.status-select:hover,
+.order-status-select:hover {
+  background: #ffe3d0;
+
+  transform: translateY(-1px);
+}
+
+.status-select:focus,
+.order-status-select:focus {
+  box-shadow:
+    0 0 0 3px rgba(255, 107, 0, 0.15);
+}
+
+/* =========================================================
+   STATUS COLORS
+   ========================================================= */
+
+.status-confirmed,
+.confirmed {
+  color: #166534;
+
+  background: #dcfce7;
+
+  border-color: #bbf7d0;
+}
+
+.status-preparing,
+.preparing {
+  color: #92400e;
+
+  background: #fef3c7;
+
+  border-color: #fde68a;
+}
+
+.status-delivery,
+.delivery {
+  color: #075985;
+
+  background: #e0f2fe;
+
+  border-color: #bae6fd;
+}
+
+.status-delivered,
+.delivered {
+  color: #6b21a8;
+
+  background: #f3e8ff;
+
+  border-color: #e9d5ff;
+}
+
+/* =========================================================
+   MENU MANAGEMENT
+   ========================================================= */
+
+.menu-management {
+  margin-top: 30px;
+}
+
+.menu-management-card {
+  background: #ffffff;
+
+  padding: 24px;
+
+  border-radius: 22px;
+
+  border: 1px solid #edf0f4;
+
+  box-shadow:
+    0 12px 35px rgba(50, 35, 25, 0.08);
+}
+
+.menu-management-card h2 {
+  color: #3b1f14;
+}
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.admin-container input,
+.admin-container select,
+.admin-container textarea {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border-radius: 12px;
+
+  border: 1px solid #dfe3e8;
+
+  background: #ffffff;
+
+  color: #242936;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition: 0.2s ease;
+}
+
+.admin-container input:focus,
+.admin-container select:focus,
+.admin-container textarea:focus {
+  border-color: #ff7a18;
+
+  box-shadow:
+    0 0 0 4px rgba(255, 122, 24, 0.12);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.admin-container button {
+  border: none;
+
+  cursor: pointer;
+
+  border-radius: 12px;
+
+  padding: 10px 17px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.admin-container button:hover {
+  transform: translateY(-2px);
+}
+
+/* Main orange button */
+
+.add-btn,
+.add-menu-btn,
+.primary-btn {
+  background:
+    linear-gradient(
+      135deg,
+      #ff6b00,
+      #ff8c2a
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 18px rgba(255, 107, 0, 0.25);
+}
+
+.add-btn:hover,
+.add-menu-btn:hover,
+.primary-btn:hover {
+  box-shadow:
+    0 12px 25px rgba(255, 107, 0, 0.35);
+}
+
+/* Edit */
+
+.edit-btn {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Delete */
+
+.delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Save */
+
+.save-btn {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* Cancel */
+
+.cancel-btn {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* =========================================================
+   MENU CARDS
+   ========================================================= */
+
+.menu-grid,
+.menu-items-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(220px, 1fr));
+
+  gap: 18px;
+}
+
+.menu-item-card {
+  position: relative;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #fff8f2
+    );
+
+  border: 1px solid #f1e4db;
+
+  box-shadow:
+    0 8px 22px rgba(70, 40, 20, 0.07);
+
+  transition: 0.25s ease;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 16px 32px rgba(70, 40, 20, 0.12);
+}
+
+.menu-item-card h3 {
+  margin: 0 0 7px;
+
+  color: #3b1f14;
+
+  font-size: 17px;
+}
+
+.menu-item-card .category {
+  color: #ff6b00;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.menu-item-card .price {
+  margin-top: 12px;
+
+  color: #15803d;
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   ANALYTICS RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .admin-container {
+    padding: 16px;
+  }
+
+  .admin-container h1 {
+    font-size: 25px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card,
+  .analytics-card,
+  .graph-card {
+    padding: 17px;
+    border-radius: 18px;
+    min-height: 350px;
+  }
+
+  .chart-container,
+  .graph-container {
+    padding: 8px;
+    min-height: 280px;
+  }
+
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.admin-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.admin-container::-webkit-scrollbar-track {
+  background: #fff3e8;
+}
+
+.admin-container::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      #ff6b00,
+      #ff9d45
+    );
+
+  border-radius: 20px;
+}
+
+.admin-container::-webkit-scrollbar-thumb:hover {
+  background: #e85d04;
+}
+
+/* =========================================================
+   PREMIUM ANIMATION
+   ========================================================= */
+
+@keyframes adminFadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+.chart-card,
+.analytics-card,
+.graph-card,
+.stat-card,
+.menu-item-card {
+  animation: adminFadeIn 0.5s ease both;
+}
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+  text-align: center;
+
+  padding: 50px 20px;
+
+  color: #7b8190;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  border: 1px dashed #d8dde5;
+}
+
+.empty-state h3 {
+  margin-bottom: 8px;
+
+  color: #3b1f14;
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading {
+  text-align: center;
+
+  padding: 40px;
+
+  color: #ff6b00;
+
+  font-weight: 700;
+}
