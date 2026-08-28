@@ -9,6 +9,14 @@ def create_tables():
     connection = get_connection()
     cursor = connection.cursor()
 
+        # Reward Points Table
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS reward_points(
+        email TEXT PRIMARY KEY,
+        points INTEGER DEFAULT 0
+    )
+    """)
+
     # Users Table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users(
