@@ -354,7 +354,7 @@ export default function Payment() {
 
             const response =
                 await axios.post(
-                    "http://127.0.0.1:5000/place-order",
+                    "https://orange-cafe-shop.onrender.com/place-order",
                     orderData
                 );
 

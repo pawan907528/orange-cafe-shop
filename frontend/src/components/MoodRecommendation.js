@@ -79,7 +79,7 @@ export default function MoodRecommendation() {
 
             const response = await axios.get(
 
-                `http://127.0.0.1:5000/recommend/${selectedMood}`
+                `https://orange-cafe-shop.onrender.com/recommend/${selectedMood}`
 
             );
 

@@ -70,7 +70,7 @@ export default function Orders() {
 
       const response =
         await axios.get(
-          `http://127.0.0.1:5000/orders?email=${encodeURIComponent(
+          `https://orange-cafe-shop.onrender.com/orders?email=${encodeURIComponent(
             userEmail
           )}`
         );

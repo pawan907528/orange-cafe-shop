@@ -32,7 +32,7 @@ export default function Loyalty() {
             try {
 
                 const response = await axios.get(
-                    `http://127.0.0.1:5000/reward/${encodeURIComponent(email)}`
+                    `https://orange-cafe-shop.onrender.com/reward/${encodeURIComponent(email)}`
                 );
 
                 console.log(

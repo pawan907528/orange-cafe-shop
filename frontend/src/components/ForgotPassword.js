@@ -74,7 +74,7 @@ export default function ForgotPassword() {
 
       const response = await axios.post(
 
-        "http://127.0.0.1:5000/forgot-password",
+        "https://orange-cafe-shop.onrender.com/forgot-password",
 
         {
           email: email.trim()
@@ -153,7 +153,7 @@ export default function ForgotPassword() {
 
       const response = await axios.post(
 
-        "http://127.0.0.1:5000/verify-otp",
+        "https://orange-cafe-shop.onrender.com/verify-otp",
 
         {
           email: email.trim(),
@@ -243,7 +243,7 @@ export default function ForgotPassword() {
 
       const response = await axios.post(
 
-        "http://127.0.0.1:5000/reset-password",
+        "https://orange-cafe-shop.onrender.com/reset-password",
 
         {
           email: email.trim(),
