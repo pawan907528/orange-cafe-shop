@@ -1034,6 +1034,113 @@ def reset_password():
 
         }), 500
 
+# ==================================================
+# CHANGE USER ROLE
+# ==================================================
+
+@app.route("/change-role", methods=["POST"])
+def change_role():
+
+    try:
+
+        data = request.get_json()
+
+        if not data:
+            return jsonify({
+                "message": "Request data is missing."
+            }), 400
+
+        email = data.get("email")
+        role = data.get("role")
+
+        if not email or not role:
+            return jsonify({
+                "message": "Email and role are required."
+            }), 400
+
+        email = email.strip().lower()
+        role = role.strip().lower()
+
+        # Allowed roles
+        allowed_roles = [
+            "admin",
+            "customer"
+        ]
+
+        if role not in allowed_roles:
+            return jsonify({
+                "message": "Invalid role. Use admin or customer."
+            }), 400
+
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        # Check user
+        cursor.execute(
+            """
+            SELECT id, name, email, role
+            FROM users
+            WHERE LOWER(email)=?
+            """,
+            (email,)
+        )
+
+        user = cursor.fetchone()
+
+        if not user:
+
+            connection.close()
+
+            return jsonify({
+                "message": "User not found."
+            }), 404
+
+        # Update role
+        cursor.execute(
+            """
+            UPDATE users
+            SET role=?
+            WHERE LOWER(email)=?
+            """,
+            (
+                role,
+                email
+            )
+        )
+
+        connection.commit()
+
+        cursor.execute(
+            """
+            SELECT id, name, email, role
+            FROM users
+            WHERE LOWER(email)=?
+            """,
+            (email,)
+        )
+
+        updated_user = cursor.fetchone()
+
+        connection.close()
+
+        return jsonify({
+
+            "message": "User role updated successfully.",
+
+            "user": dict(updated_user)
+
+        }), 200
+
+    except Exception as e:
+
+        print(
+            "CHANGE ROLE ERROR:",
+            e
+        )
+
+        return jsonify({
+            "message": str(e)
+        }), 500
 
 # ==================================================
 # RUN FLASK SERVER
