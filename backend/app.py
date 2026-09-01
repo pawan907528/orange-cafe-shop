@@ -1143,6 +1143,45 @@ def change_role():
         }), 500
 
 # ==================================================
+# GET ALL USERS
+# ==================================================
+
+@app.route("/users", methods=["GET"])
+def get_all_users():
+
+    try:
+
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        cursor.execute("""
+            SELECT
+                id,
+                name,
+                email,
+                role
+            FROM users
+            ORDER BY id
+        """)
+
+        users = cursor.fetchall()
+
+        connection.close()
+
+        return jsonify([
+            dict(user)
+            for user in users
+        ])
+
+    except Exception as e:
+
+        print("GET USERS ERROR:", e)
+
+        return jsonify({
+            "message": str(e)
+        }), 500
+
+# ==================================================
 # RUN FLASK SERVER
 # ==================================================
 
