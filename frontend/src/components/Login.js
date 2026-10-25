@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import { useState } from "react";
 import {
   Link,
@@ -80,7 +81,7 @@ export default function Login() {
 
       const response = await axios.post(
 
-        "http://127.0.0.1:5000/login",
+        `${API_URL}/login`,
 
         {
           email: email.trim(),

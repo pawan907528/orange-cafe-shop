@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import { useState } from "react";
 import {
   Link,
@@ -90,7 +91,7 @@ export default function Register() {
       // ==========================
 
       const response = await axios.post(
-        "http://127.0.0.1:5000/register",
+        `${API_URL}/register`,
         {
           name: name.trim(),
           email: email.trim(),

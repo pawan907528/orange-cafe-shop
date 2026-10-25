@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -36,7 +37,7 @@ export default function SmartOffers() {
 
                 const response = await axios.get(
 
-                    `https://orange-cafe-shop.onrender.com/personalized-offer/${encodeURIComponent(
+                    `${API_URL}/personalized-offer/${encodeURIComponent(
                         storedUser.email
                     )}`
 

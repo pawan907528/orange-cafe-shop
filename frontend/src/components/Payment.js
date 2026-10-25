@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -354,7 +355,7 @@ export default function Payment() {
 
             const response =
                 await axios.post(
-                    "https://orange-cafe-shop.onrender.com/place-order",
+                    `${API_URL}/place-order`,
                     orderData
                 );
 

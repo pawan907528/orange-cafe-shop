@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Loyalty.css";
@@ -32,7 +33,7 @@ export default function Loyalty() {
             try {
 
                 const response = await axios.get(
-                    `https://orange-cafe-shop.onrender.com/reward/${encodeURIComponent(email)}`
+                    `${API_URL}/reward/${encodeURIComponent(email)}`
                 );
 
                 console.log(

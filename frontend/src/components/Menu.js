@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import {
   useNavigate,
   useSearchParams
@@ -161,7 +162,7 @@ export default function Menu() {
     try {
 
       const response = await axios.get(
-        "https://orange-cafe-shop.onrender.com/menu"
+        `${API_URL}/menu`
       );
 
 

@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { jsPDF } from "jspdf";
@@ -70,7 +71,7 @@ export default function Orders() {
 
       const response =
         await axios.get(
-          `https://orange-cafe-shop.onrender.com/orders?email=${encodeURIComponent(
+          `${API_URL}/orders?email=${encodeURIComponent(
             userEmail
           )}`
         );

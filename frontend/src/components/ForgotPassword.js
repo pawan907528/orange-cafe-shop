@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -74,7 +75,7 @@ export default function ForgotPassword() {
 
       const response = await axios.post(
 
-        "https://orange-cafe-shop.onrender.com/forgot-password",
+        `${API_URL}/forgot-password`,
 
         {
           email: email.trim()
@@ -153,7 +154,7 @@ export default function ForgotPassword() {
 
       const response = await axios.post(
 
-        "https://orange-cafe-shop.onrender.com/verify-otp",
+        `${API_URL}/verify-otp`,
 
         {
           email: email.trim(),
@@ -243,7 +244,7 @@ export default function ForgotPassword() {
 
       const response = await axios.post(
 
-        "https://orange-cafe-shop.onrender.com/reset-password",
+        `${API_URL}/reset-password`,
 
         {
           email: email.trim(),

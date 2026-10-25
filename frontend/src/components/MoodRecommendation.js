@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -79,7 +80,7 @@ export default function MoodRecommendation() {
 
             const response = await axios.get(
 
-                `https://orange-cafe-shop.onrender.com/recommend/${selectedMood}`
+                `${API_URL}/recommend/${selectedMood}`
 
             );
 

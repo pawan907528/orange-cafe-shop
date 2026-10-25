@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -134,7 +135,7 @@ export default function Admin() {
         // ==================================================
 
         const ordersResponse = await axios.get(
-          "http://127.0.0.1:5000/orders"
+          `${API_URL}/orders`
         );
 
 
@@ -143,7 +144,7 @@ export default function Admin() {
         // ==================================================
 
         const menuResponse = await axios.get(
-          "http://127.0.0.1:5000/menu"
+          `${API_URL}/menu`
         );
 
 
@@ -416,7 +417,7 @@ export default function Admin() {
 
       const response =
         await axios.get(
-          "http://127.0.0.1:5000/menu"
+          `${API_URL}/menu`
         );
 
 
@@ -466,7 +467,7 @@ export default function Admin() {
 
       const response =
         await axios.get(
-          "http://127.0.0.1:5000/orders"
+          `${API_URL}/orders`
         );
 
 
@@ -546,7 +547,7 @@ export default function Admin() {
       // ------------------------------
 
       await axios.post(
-        "http://127.0.0.1:5000/menu",
+        `${API_URL}/menu`,
         {
           name: itemName.trim(),
           category: itemCategory,
@@ -696,7 +697,7 @@ export default function Admin() {
 
       await axios.put(
 
-        `http://127.0.0.1:5000/menu/${editId}`,
+        `${API_URL}/menu/${editId}`,
 
         {
           name: itemName.trim(),
@@ -753,6 +754,7 @@ export default function Admin() {
   // CANCEL EDIT
   // ========================================================
 
+  // eslint-disable-next-line no-unused-vars
   const cancelEdit = () => {
 
     setEditId(null);
@@ -802,7 +804,7 @@ export default function Admin() {
 
       await axios.delete(
 
-        `http://127.0.0.1:5000/menu/${itemId}`
+        `${API_URL}/menu/${itemId}`
 
       );
 
@@ -896,7 +898,7 @@ export default function Admin() {
       const response =
         await axios.put(
 
-          `http://127.0.0.1:5000/orders/${orderId}`,
+          `${API_URL}/orders/${orderId}`,
 
           {
             status: newStatus
