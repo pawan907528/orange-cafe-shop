@@ -9,55 +9,36 @@ import axios from "axios";
 import "./Register.css";
 
 export default function Register() {
-
   const navigate = useNavigate();
 
   // ==========================
   // STATES
   // ==========================
 
-  const [name, setName] =
-    useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [email, setEmail] =
-    useState("");
-
-  const [password, setPassword] =
-    useState("");
-
-  const [confirmPassword, setConfirmPassword] =
-    useState("");
-
-  const [showPassword, setShowPassword] =
-    useState(false);
-
-  const [loading, setLoading] =
-    useState(false);
-
-  const [error, setError] =
-    useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   // ==========================
   // CHECK EXISTING LOGIN
   // ==========================
 
-  const existingUser =
-    JSON.parse(
-      localStorage.getItem("user")
-    );
-
-  // If already logged in,
-  // redirect to menu
+  const existingUser = JSON.parse(
+    localStorage.getItem("user")
+  );
 
   if (existingUser) {
-
     return (
       <Navigate
         to="/menu"
         replace
       />
     );
-
   }
 
   // ==========================
@@ -65,7 +46,6 @@ export default function Register() {
   // ==========================
 
   const registerUser = async () => {
-
     setError("");
 
     // ==========================
@@ -78,29 +58,17 @@ export default function Register() {
       password.trim() === "" ||
       confirmPassword.trim() === ""
     ) {
-
-      setError(
-        "Please fill all fields."
-      );
-
+      setError("Please fill all fields.");
       return;
-
     }
 
     // ==========================
     // PASSWORD MATCH
     // ==========================
 
-    if (
-      password !== confirmPassword
-    ) {
-
-      setError(
-        "Passwords do not match."
-      );
-
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
       return;
-
     }
 
     // ==========================
@@ -108,33 +76,26 @@ export default function Register() {
     // ==========================
 
     if (password.length < 6) {
-
       setError(
         "Password must contain at least 6 characters."
       );
-
       return;
-
     }
 
     setLoading(true);
 
     try {
+      // ==========================
+      // LOCAL FLASK BACKEND
+      // ==========================
 
       const response = await axios.post(
-
-        "https://orange-cafe-shop.onrender.com/register",
-
+        "http://127.0.0.1:5000/register",
         {
-
           name: name.trim(),
-
           email: email.trim(),
-
           password: password
-
         }
-
       );
 
       // ==========================
@@ -142,10 +103,8 @@ export default function Register() {
       // ==========================
 
       alert(
-
         response.data.message ||
         "Registration Successful"
-
       );
 
       // ==========================
@@ -154,42 +113,26 @@ export default function Register() {
 
       navigate("/login");
 
-    }
-
-    catch (error) {
-
+    } catch (error) {
       console.error(
         "Registration Error:",
         error
       );
 
       if (error.response) {
-
         setError(
-
           error.response.data.message ||
           "Registration failed."
-
         );
-
-      }
-
-      else {
-
+      } else {
         setError(
           "Server not responding."
         );
-
       }
 
-    }
-
-    finally {
-
+    } finally {
       setLoading(false);
-
     }
-
   };
 
   // ==========================
@@ -197,7 +140,6 @@ export default function Register() {
   // ==========================
 
   return (
-
     <div className="register-page">
 
       {/* ==========================
@@ -268,45 +210,31 @@ export default function Register() {
           {/* ERROR */}
 
           {error && (
-
             <div className="error-box">
-
               {error}
-
             </div>
-
           )}
 
           {/* NAME */}
 
           <input
-
             type="text"
-
             placeholder="👤 Full Name"
-
             value={name}
-
             onChange={(e) =>
               setName(e.target.value)
             }
-
           />
 
           {/* EMAIL */}
 
           <input
-
             type="email"
-
             placeholder="📧 Email Address"
-
             value={email}
-
             onChange={(e) =>
               setEmail(e.target.value)
             }
-
           />
 
           {/* PASSWORD */}
@@ -314,43 +242,32 @@ export default function Register() {
           <div className="password-box">
 
             <input
-
               type={
                 showPassword
                   ? "text"
                   : "password"
               }
-
               placeholder="🔒 Password"
-
               value={password}
-
               onChange={(e) =>
                 setPassword(
                   e.target.value
                 )
               }
-
             />
 
             <button
-
               type="button"
-
               className="show-btn"
-
               onClick={() =>
                 setShowPassword(
                   !showPassword
                 )
               }
-
             >
-
               {showPassword
                 ? "🙈"
                 : "👁"}
-
             </button>
 
           </div>
@@ -358,37 +275,26 @@ export default function Register() {
           {/* CONFIRM PASSWORD */}
 
           <input
-
             type="password"
-
             placeholder="🔒 Confirm Password"
-
             value={confirmPassword}
-
             onChange={(e) =>
               setConfirmPassword(
                 e.target.value
               )
             }
-
           />
 
           {/* REGISTER BUTTON */}
 
           <button
-
             className="register-btn"
-
             onClick={registerUser}
-
             disabled={loading}
-
           >
-
             {loading
               ? "Creating Account..."
               : "🚀 Create Account"}
-
           </button>
 
           {/* LOGIN */}
@@ -400,9 +306,7 @@ export default function Register() {
             </p>
 
             <Link to="/login">
-
               Login
-
             </Link>
 
           </div>
@@ -412,7 +316,5 @@ export default function Register() {
       </div>
 
     </div>
-
   );
-
 }

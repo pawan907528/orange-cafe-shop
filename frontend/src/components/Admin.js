@@ -134,7 +134,7 @@ export default function Admin() {
         // ==================================================
 
         const ordersResponse = await axios.get(
-          "https://orange-cafe-shop.onrender.com/orders"
+          "http://127.0.0.1:5000/orders"
         );
 
 
@@ -143,7 +143,7 @@ export default function Admin() {
         // ==================================================
 
         const menuResponse = await axios.get(
-          "https://orange-cafe-shop.onrender.com/menu"
+          "http://127.0.0.1:5000/menu"
         );
 
 
@@ -416,7 +416,7 @@ export default function Admin() {
 
       const response =
         await axios.get(
-          "https://orange-cafe-shop.onrender.com/menu"
+          "http://127.0.0.1:5000/menu"
         );
 
 
@@ -466,7 +466,7 @@ export default function Admin() {
 
       const response =
         await axios.get(
-          "https://orange-cafe-shop.onrender.com/orders"
+          "http://127.0.0.1:5000/orders"
         );
 
 
@@ -546,7 +546,7 @@ export default function Admin() {
       // ------------------------------
 
       await axios.post(
-        "https://orange-cafe-shop.onrender.com/menu",
+        "http://127.0.0.1:5000/menu",
         {
           name: itemName.trim(),
           category: itemCategory,
@@ -696,7 +696,7 @@ export default function Admin() {
 
       await axios.put(
 
-        `https://orange-cafe-shop.onrender.com/menu/${editId}`,
+        `http://127.0.0.1:5000/menu/${editId}`,
 
         {
           name: itemName.trim(),
@@ -802,7 +802,7 @@ export default function Admin() {
 
       await axios.delete(
 
-        `https://orange-cafe-shop.onrender.com/menu/${itemId}`
+        `http://127.0.0.1:5000/menu/${itemId}`
 
       );
 
@@ -896,7 +896,7 @@ export default function Admin() {
       const response =
         await axios.put(
 
-          `https://orange-cafe-shop.onrender.com/orders/${orderId}`,
+          `http://127.0.0.1:5000/orders/${orderId}`,
 
           {
             status: newStatus
